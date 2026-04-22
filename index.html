@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Notes | Premium AI Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-microphone-alt"></i>
+                <h1>Voice<span>Notes</span></h1>
+            </div>
+            <div class="controls">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search notes...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div id="user-profile" class="user-profile hidden">
+                    <span id="username-display"></span>
+                    <button id="logout-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+                <button id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div id="auth-overlay" class="auth-overlay">
+            <div class="glass-card auth-card">
+                <h2 id="auth-title">Welcome Back</h2>
+                <p id="auth-subtitle">Login to access your voice notes</p>
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="auth-username" required placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="auth-password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" id="auth-submit-btn" class="btn-primary w-full">Login</button>
+                </form>
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" id="toggle-auth">Sign Up</a>
+                </p>
+            </div>
+        </div>
+
+        <main id="main-content" class="hidden">
+            <section class="record-section">
+                <div class="glass-card record-card">
+                    <div class="status-indicator" id="status-text">Ready to record</div>
+                    <textarea id="note-textarea" placeholder="Your speech will appear here..."></textarea>
+                    <div class="record-controls">
+                        <button id="record-btn" class="btn-primary">
+                            <i class="fas fa-microphone"></i>
+                            <span>Start Recording</span>
+                        </button>
+                        <button id="save-btn" class="btn-success" disabled>
+                            <i class="fas fa-save"></i>
+                            <span>Save Note</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="notes-section">
+                <h2>Your Saved Notes</h2>
+                <div id="notes-grid" class="notes-grid">
+                    <!-- Notes will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
